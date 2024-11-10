@@ -11,6 +11,21 @@
     - link.destination.make is defined
     - link.destination.make
 
+- name: hth | symlink | stat location
+  ansible.builtin.stat:
+    path: "{{ link.location.path }}"
+  register: destination
+
+- name: hth | symlink | remove location
+  ansible.builtin.file:
+    path: "{{ link.location.path }}"
+    state: absent
+  when:
+    - link.location.force is defined
+    - link.location.force
+    - destination.stat.exists
+    - destination.stat.isdir or (destination.stat.islnk and destination.stat.lnk_source != "{{ link.destination.path }}")
+
 - name: hth | symlink | create link
   ansible.builtin.file:
     src: "{{ link.destination.path }}"
@@ -20,4 +35,3 @@
     group: "{{ link.location.group }}"
     modification_time: preserve
     access_time: preserve
-

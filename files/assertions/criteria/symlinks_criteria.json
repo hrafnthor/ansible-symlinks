@@ -23,6 +23,10 @@
                     "group":
                     {
                         "$ref": "#/definitions/non-empty-string"
+                    },
+                    "force":
+                    {
+                        "type": "boolean"
                     }
                 },
                 "required":
