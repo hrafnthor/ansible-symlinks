@@ -1,0 +1,15 @@
+- name: hth | assert | verify 'symlink' input
+  ansible.builtin.assert:
+    that:
+      - symlinks is iterable
+      - symlinks | length > 0
+  when:
+    - symlinks is defined
+
+- name: hth | symlink | validate 'symlinks' schema
+  ansible.utils.validate:
+    data: "{{ symlinks }}"
+    criteria: "{{ lookup('file', 'assertions/criteria/symlinks_criteria.json') | from_json }}"
+    engine: ansible.utils.jsonschema
+  when:
+    - symlinks is defined

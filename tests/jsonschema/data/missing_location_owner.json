@@ -1,0 +1,13 @@
+[
+    {
+        "location":
+        {
+            "path": "value",
+            "group": "value"
+        },
+        "destination":
+        {
+            "path": ""
+        }
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "location":
+        {
+            "path": "value",
+            "owner": "",
+            "group": "value"
+        },
+        "destination":
+        {
+            "path": ""
+        }
+    }
+]
