@@ -1,0 +1,23 @@
+- name: hth | symlink | create destination directory
+  ansible.builtin.file:
+    path: "{{ link.destination.path }}"
+    state: directory
+    owner: "{{ link.destination.owner }}"
+    group: "{{ link.destination.group }}"
+    modification_time: preserve
+    access_time: preserve
+    mode: "{{ link.destination.mode }}"
+  when:
+    - link.destination.make is defined
+    - link.destination.make
+
+- name: hth | symlink | create link
+  ansible.builtin.file:
+    src: "{{ link.destination.path }}"
+    dest: "{{ link.location.path }}"
+    state: link
+    owner: "{{ link.location.owner }}"
+    group: "{{ link.location.group }}"
+    modification_time: preserve
+    access_time: preserve
+

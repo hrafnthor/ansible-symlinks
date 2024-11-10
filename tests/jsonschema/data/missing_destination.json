@@ -1,0 +1,10 @@
+[
+    {
+        "location":
+        {
+            "path": "value",
+            "owner": "value",
+            "group": "value"
+        }
+    }
+]

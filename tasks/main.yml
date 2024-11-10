@@ -1,0 +1,12 @@
+- name: hth | symlinks | assert inputs
+  ansible.builtin.import_tasks: assert.yml
+  run_once: yes
+  delegate_to: localhost
+
+
+- name: hth | symlinks | create link
+  ansible.builtin.include_tasks: make_link.yml
+  loop: "{{ symlinks }}"
+  loop_control:
+    loop_var: link
+  when: symlinks is defined

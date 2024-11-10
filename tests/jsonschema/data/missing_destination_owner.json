@@ -1,0 +1,15 @@
+[
+    {
+        "location":
+        {
+            "path": "value",
+            "owner": "value",
+            "group": "value"
+        },
+        "destination":
+        {
+            "path": "value",
+            "make": true
+        }
+    }
+]
